@@ -2,8 +2,8 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-var localSettings = {};
-dayjs.local(localSettings);
+var localeSettings = {};
+dayjs.locale(localeSettings);
 
 $(function () {
     var currentHour = dayjs().format("H");
@@ -11,9 +11,6 @@ $(function () {
     function timeline() {
         $(".time-block").each(function() {
             var rowTime = parseInt(this.id);
-            $(this).toggleClass("past", rowTime < currentHour);
-            $(this).toggleClass("present", rowTime === currentHour);
-            $(this).toggleClass("future", rowTime > currentHour);
 
             if (rowTime < currentHour) {
                 $(this).addClass("past");
@@ -23,7 +20,7 @@ $(function () {
                 $(this).removeClass("past");
                 $(this).addClass("present");
                 $(this).removeClass("future");
-            } else (rowTime > currentHour) {
+            } else {
                 $(this).removeClass("past");
                 $(this).removeClass("present");
                 $(this).addClass("future");
@@ -53,6 +50,6 @@ $(function () {
 
     timeline();
     userTask();
-    setInterval(updateTime, 1000);
+    setInterval(currentTime, 1000);
 });
 
