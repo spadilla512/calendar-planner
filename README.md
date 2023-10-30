@@ -34,9 +34,11 @@ N/A
 
 When the application is opened, the current day is displayed at the top. The user can edit each time block to enter in a specific task they would like to complete during each hour of their work schedule. Click the blue save button on the right of each time block. The events will still be there if the page is refreshed. Each row will change color as time goes on to visualize the time change from gray (past), red (present), green (future).
 
-inlcude screenshot
+![Alt text](assets/images/image.png)
 
-Deployed link: https://spadilla512.github.io/calendar-planner/
+## Deployed Link 
+
+https://spadilla512.github.io/calendar-planner/
 
 ## Credits
 
