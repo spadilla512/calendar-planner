@@ -12,12 +12,12 @@ $(function () {
     function timeline() {
         $(".time-block").each(function() {
             var rowTime = parseInt(this.id);
-
+            
             if (rowTime < currentHour) {
                 $(this).addClass("past");
                 $(this).removeClass("present");
                 $(this).removeClass("future");
-            } else if (rowTime === currentHour) {
+            } else if (rowTime == currentHour) {
                 $(this).removeClass("past");
                 $(this).addClass("present");
                 $(this).removeClass("future");
@@ -28,6 +28,8 @@ $(function () {
             }
         });
     }
+
+ 
     //user will click the save button after they type in their task
     function userTask () {
         $(".saveBtn").on("click", function() {
@@ -43,14 +45,15 @@ $(function () {
         $(this).children(".description").val(value);
     });
     //will show the current date in the header while using the application 
-    function currentDate() {
+    function updateTime() {
         var date = $("#date");
         var currentDate = dayjs().format("dddd, MMMM D, YYYY");
-        date.text(currentDate);
+        date.text(currentDate)
     }
     //calling the functions
     timeline();
     userTask();
-    setInterval(currentDate, 1000);
+   
+    setInterval(updateTime, 1000);
 });
 
