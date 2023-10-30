@@ -6,8 +6,9 @@ var localeSettings = {};
 dayjs.locale(localeSettings);
 
 $(function () {
+    //current hour of the day using dayjs library
     var currentHour = dayjs().format("H");
-
+    //As time moves on each row will change color in the timeline. Past=gray, present=red, future=green
     function timeline() {
         $(".time-block").each(function() {
             var rowTime = parseInt(this.id);
@@ -27,7 +28,7 @@ $(function () {
             }
         });
     }
-
+    //user will click the save button after they type in their task
     function userTask () {
         $(".saveBtn").on("click", function() {
             var key = $(this).parent().attr("id");
@@ -35,21 +36,21 @@ $(function () {
             localStorage.setItem(key, value);
         });
     }
-
+    //user input from local storage and set text area values
     $(".time-block").each(function() {
         var key = $(this).attr("id");
         var value = localStorage.getItem(key);
         $(this).children(".description").val(value);
     });
-
-    function currentTime() {
+    //will show the current date in the header while using the application 
+    function currentDate() {
         var date = $("#date");
         var currentDate = dayjs().format("dddd, MMMM D, YYYY");
         date.text(currentDate);
     }
-
+    //calling the functions
     timeline();
     userTask();
-    setInterval(currentTime, 1000);
+    setInterval(currentDate, 1000);
 });
 
